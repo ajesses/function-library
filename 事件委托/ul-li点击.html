@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>li点击事件</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+	</ul>
+
+	<script type="text/javascript">
+		/*
+			此方法有弊端，如果li不存在，是未来元素，点击不生效
+		*/
+		// function one(){
+		// 	let oList = document.getElementById("list");
+		// 	let oLi = document.getElementsByTagName("li");
+
+		// 	for (let i = 1; i <= oLi.length; i++) {
+		// 		oLi[i].addEventListener("click", function(){
+		// 			alert(this.innerHTML)
+		// 		})
+		// 	}
+		// }
+		// one();
+
+
+		// 利用事件委托
+		function two(){
+			let oList = document.getElementById("list");
+			oList.addEventListener("click", function(ev){
+				var ev = ev || window.event;
+				var target = ev.target || ev.srcElement;
+				if (target.tagName.toLowerCase() === 'li') {
+					alert(target.innerHTML)
+				}
+			})
+		}
+		two()
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js运行机制</title>
+</head>
+<body>
+  <script type="text/javascript">
+  {
+    console.log(1);
+    setTimeout(function () {
+      console.log(2);
+    }, 0);
+    console.log(3);
+  }
+
+  {
+    for (var i = 0; i < 4; i++) {
+      setTimeout(function () {
+        console.log(i);
+      }, 0);
+    }
+  }
+
+  {
+    // console.log("a");
+    // while (true) {
+    //
+    // }
+    // console.log("b");
+  }
+  </script>
+</body>
+</html>
